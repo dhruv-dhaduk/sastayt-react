@@ -1,4 +1,4 @@
-import { AppwriteService } from '../appwrite';
+import { AppwriteService } from '../appwriteService';
 import { sastaytIDB } from './indexedDB.js';
 
 const paggedDataProvider = () => {
