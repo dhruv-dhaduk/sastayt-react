@@ -1,5 +1,5 @@
 import { AppwriteService } from '../appwrite';
-import { getVideosFromIndexedDB, addVideosToIndexedDB } from './indexedDB.js';
+import { sastaytIDB } from './indexedDB.js';
 
 const paggedDataProvider = () => {
     const service = new AppwriteService();
@@ -12,7 +12,7 @@ const paggedDataProvider = () => {
 
         let dataFromIDB = {};
         try {
-            dataFromIDB = await getVideosFromIndexedDB(ids);
+            dataFromIDB = await sastaytIDB.getVideosFromIndexedDB(ids);
         } catch (err) {
             console.log(`Error : ${err}`);
             dataFromIDB.success = [];
@@ -29,7 +29,7 @@ const paggedDataProvider = () => {
             console.log(`Error : ${err}`);
         }
 
-        addVideosToIndexedDB(dataFromMainDB);
+        sastaytIDB.addVideosToIndexedDB(dataFromMainDB);
 
         return dataFromIDB.success.concat(dataFromMainDB);
     }
