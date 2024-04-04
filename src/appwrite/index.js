@@ -6,12 +6,14 @@ client
     .setEndpoint("https://cloud.appwrite.io/v1")
     .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
 
-const databases = new Databases(client);
+class AppwriteService {
+    #databases;
+    #lastFetchedID;
+    constructor() {
+        this.#databases = new Databases(client);
+    }
 
-const getPagedFetcher = () => {
-    let lastFetchedID;
-
-    const fetchNextVideos = async (count, resetPaging) => {
+    async fetchNextPageIDs(count, resetPaging) {
 
         const queryList = [
             Query.select(['$id', 'id']),
@@ -19,12 +21,12 @@ const getPagedFetcher = () => {
         ];
 
         if (resetPaging)
-            lastFetchedID = undefined;
+            this.#lastFetchedID = undefined;
 
-        if (lastFetchedID)
-            queryList.push(Query.cursorAfter(lastFetchedID));
+        if (this.#lastFetchedID)
+            queryList.push(Query.cursorAfter(this.#lastFetchedID));
 
-        const response = await databases.listDocuments(
+        const response = await this.#databases.listDocuments(
             import.meta.env.VITE_APPWRITE_DB_ID,
             import.meta.env.VITE_APPWRITE_VIDEOS_COLLECTION_ID,
             queryList
@@ -33,7 +35,7 @@ const getPagedFetcher = () => {
         if (!response.documents.length)
             return null;
 
-        lastFetchedID = response.documents[response.documents.length - 1].$id;
+        this.#lastFetchedID = response.documents[response.documents.length - 1].$id;
 
         for (const item of response.documents) {
             delete item.$id;
@@ -42,20 +44,19 @@ const getPagedFetcher = () => {
         return response.documents;
     }
 
-    return fetchNextVideos;
+    async fetchVideoDetails(IDs) {
+        const response = await this.#databases.listDocuments(
+            import.meta.env.VITE_APPWRITE_DB_ID,
+            import.meta.env.VITE_APPWRITE_VIDEOS_COLLECTION_ID,
+            [
+                Query.select(['id', 'title', 'thumbnail', 'duration', 'uploadTime', 'channelTitle', 'channelLink', 'channelLogo']),
+                Query.equal('id', IDs)
+            ]
+        );
+    
+        return response.documents;
+    }
+
 }
 
-const fetchVideoDetails = async (IDs) => {
-    const response = await databases.listDocuments(
-        import.meta.env.VITE_APPWRITE_DB_ID,
-        import.meta.env.VITE_APPWRITE_VIDEOS_COLLECTION_ID,
-        [
-            Query.select(['id', 'title', 'thumbnail', 'duration', 'uploadTime', 'channelTitle', 'channelLink', 'channelLogo']),
-            Query.equal('id', IDs)
-        ]
-    );
-
-    return response.documents;
-}
-
-export { getPagedFetcher, fetchVideoDetails };
+export { AppwriteService };

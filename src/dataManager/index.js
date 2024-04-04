@@ -1,11 +1,11 @@
-import { fetchVideoDetails, getPagedFetcher } from '../appwrite';
+import { AppwriteService } from '../appwrite';
 import { getVideosFromIndexedDB, addVideosToIndexedDB } from './indexedDB.js';
 
 const paggedDataProvider = () => {
-    const fetchNextIDs = getPagedFetcher();
+    const service = new AppwriteService();
 
     const getNextVideos = async (count, resetPaging) => {
-        let ids = await fetchNextIDs(count, resetPaging);
+        let ids = await service.fetchNextPageIDs(count, resetPaging);
         if (!ids)
             return [];
         ids = ids.map((item) => item.id);
@@ -23,7 +23,7 @@ const paggedDataProvider = () => {
 
         try {
             if (dataFromIDB.fail.length)
-                dataFromMainDB = await fetchVideoDetails(dataFromIDB.fail);
+                dataFromMainDB = await service.fetchVideoDetails(dataFromIDB.fail);
         }
         catch(err) {
             console.log(`Error : ${err}`);
