@@ -8,9 +8,8 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={ <App /> }>
-            <Route path="a" element={ <h1>A</h1> } />
-            <Route path="b" element={ <h1>B</h1> } />
-            <Route path="c" element={ <h1>C</h1> } />
+            <Route path="/" element={ <h1>Home Page</h1> } />
+            <Route path="*" element={ <h1>404 Not Found</h1> } />
         </Route>
     )
 );
