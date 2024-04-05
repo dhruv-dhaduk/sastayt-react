@@ -1,6 +1,8 @@
+import isMobileDevice from "../utils/isMobileDevice.js";
+
 function NavItem({label, iconSrc}) {
     return (
-        <div className="w-full h-full cursor-pointer flex flex-col justify-center items-center active:bg-gray-900 sm:flex-1 md:h-20">
+        <div className={`w-full h-full cursor-pointer flex flex-col justify-center items-center sm:flex-1 md:h-20 active:bg-gray-800 ${isMobileDevice ? "" : "hover:bg-gray-900"}`}>
             <img 
                 src={iconSrc}
                 alt={label}

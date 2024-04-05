@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import isMobileDevice from '../utils/isMobileDevice.js';
 
 function Header() {
     return (
@@ -9,7 +10,7 @@ function Header() {
                 
                 <Link to="/" >
                     <div
-                        className="w-fit h-full active:bg-gray-800 sm:p-3.5 md:p-4"
+                        className={`w-fit h-full sm:p-3.5 md:p-4 active:bg-gray-800 ${isMobileDevice ? "" : "hover:bg-gray-900"}`}
                     >
                         <img 
                             src="/logos/sastayt.png" 
