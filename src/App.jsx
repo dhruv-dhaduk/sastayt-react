@@ -7,7 +7,9 @@ function App() {
         <>
             <Header />
 
-            <Outlet />
+            <main className="sm:mt-12 md:mt-14" >
+                <Outlet />
+            </main>
         </>
     );
 }
