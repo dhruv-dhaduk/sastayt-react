@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
+import NavBar from "./components/NavBar";
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
             <main className="sm:mt-12 md:mt-14" >
                 <Outlet />
             </main>
+
+            <NavBar />
         </>
     );
 }
