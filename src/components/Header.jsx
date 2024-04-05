@@ -4,7 +4,7 @@ function Header() {
     return (
         <>
             <header
-                className="fixed top-0 inset-x-0 border-b border-b-gray-800 sm:h-12 md:h-14"
+                className="bg-black fixed top-0 inset-x-0 border-b border-b-gray-800 sm:h-12 md:h-14"
             >
                 
                 <Link to="/" >
