@@ -1,14 +1,18 @@
 import NavItem from "./NavItem";
+import homeIcon from "/icons/home.svg";
+import refreshIcon from "/icons/refresh.svg";
+import shuffleIcon from "/icons/shuffle.svg";
+import backToTopIcon from "/icons/backToTop.svg"
 
 function NavBar() {
     return (
         <nav
             className="bg-black fixed border-gray-800 sm:border-t md:border-t-0 sm:flex md:block md:border-r sm:bottom-0 sm:inset-x-0 sm:w-full sm:h-12 md:left-0 md:top-14 md:w-16 md:h-full"
         >
-            <NavItem iconSrc="https://dhruv-dhaduk.github.io/assets/logos/white/home_filled_white.png" label="Home" />
-            <NavItem iconSrc="https://dhruv-dhaduk.github.io/assets/logos/white/refresh_white.png" label="Refresh" />
-            <NavItem iconSrc="https://dhruv-dhaduk.github.io/assets/logos/white/shuffle_white.png" label="Shuffle" />
-            <NavItem iconSrc="https://dhruv-dhaduk.github.io/assets/logos/white/back_to_top_white.png" label="Back To Top" />
+            <NavItem iconSrc={homeIcon} label="Home" />
+            <NavItem iconSrc={refreshIcon} label="Refresh" />
+            <NavItem iconSrc={shuffleIcon} label="Shuffle" />
+            <NavItem iconSrc={backToTopIcon} label="Back To Top" />
         </nav>
     );
 }
