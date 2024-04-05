@@ -2,7 +2,11 @@
 export default {
     content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
-        extend: {},
+        extend: {
+            spacing: {
+                '12ch': '12ch'
+            }
+        },
         screens: {
             'sm': '0px',
             'md': '420px',
@@ -12,7 +16,7 @@ export default {
         },
         fontSize: {
             'vsm': '0.65rem'
-        }
+        },
     },
     plugins: [],
 };

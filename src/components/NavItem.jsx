@@ -9,7 +9,7 @@ function NavItem({label, iconSrc}) {
                 className="select-none sm:w-5 md:w-6"
             />
 
-            <p className="text-vsm select-none">
+            <p className="text-vsm select-none max-w-12ch text-nowrap overflow-x-hidden ">
                 {label}
             </p>
         </div>
