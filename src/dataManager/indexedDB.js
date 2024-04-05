@@ -1,8 +1,8 @@
 class IDBservice {
     #db;
 
-    constructor(dbName, version) {
-        const request = window.indexedDB.open(dbName, version);
+    constructor(version) {
+        const request = window.indexedDB.open("SastaYT", version);
 
         request.onerror = () => {
             console.log(`Error while connecting IndexedDB : ${request.error}`);
@@ -109,5 +109,5 @@ class IDBservice {
     }
 }
 
-const sastaytIDB = new IDBservice("SastaYT", 1);
+const sastaytIDB = new IDBservice(1);
 export { sastaytIDB };
