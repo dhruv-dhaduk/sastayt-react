@@ -9,6 +9,9 @@ export default {
             'lg': '840px',
             'xl': '1440px',
             '2xl': '1740px'
+        },
+        fontSize: {
+            'vsm': '0.65rem'
         }
     },
     plugins: [],
