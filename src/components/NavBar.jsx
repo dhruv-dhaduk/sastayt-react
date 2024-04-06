@@ -12,7 +12,7 @@ function NavBar() {
             <NavItem iconSrc={homeIcon} label="Home" />
             <NavItem iconSrc={refreshIcon} label="Refresh" />
             <NavItem iconSrc={shuffleIcon} label="Shuffle" />
-            <NavItem iconSrc={backToTopIcon} label="Back To Top" />
+            <NavItem iconSrc={backToTopIcon} label="Back To Top" onClick={() => window.scrollTo(0, 0)} />
         </nav>
     );
 }
