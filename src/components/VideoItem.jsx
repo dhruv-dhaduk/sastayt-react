@@ -1,3 +1,5 @@
+import { convertDurationFormat, convertUploadTimeFormat } from '../utils/converters.js';
+
 function VideoItem({ video }) {
     return (
         <div>
@@ -11,7 +13,7 @@ function VideoItem({ video }) {
                 />
 
                 <p className="bg-black text-white sm:text-[13px]/[16px] md:text-[14px]/[18px] font-bold bg-opacity-70 absolute right-0 bottom-0 m-2 px-2 rounded-md">
-                    { video.duration }
+                    { convertDurationFormat(video.duration) }
                 </p>
             </div>
 
@@ -34,7 +36,7 @@ function VideoItem({ video }) {
                     <p className="line-clamp-1 sm:text-[12px] md:text-sm text-stone-400">
                         { video.channelTitle } 
                         <span className="text-base/2 font-bold px-1"> · </span>
-                        { video.uploadTime }
+                        { convertUploadTimeFormat(video.uploadTime) }
                     </p>
                 </div>
             </div>
