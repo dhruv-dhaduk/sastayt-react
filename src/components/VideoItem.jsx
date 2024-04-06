@@ -1,10 +1,13 @@
 import { convertDurationFormat, convertUploadTimeFormat } from '../utils/converters.js';
+import { useNavigate } from 'react-router-dom';
 
 function VideoItem({ video }) {
+    const navigate = useNavigate();
+
     return (
         <div 
             className="select-none cursor-pointer active:bg-stone-800"
-            onClick={e => { e.preventDefault(); window.open(`https://youtu.be/${video.id}`, "_blank") }}
+            onClick={e => { e.stopPropagation(); navigate(`/videos/${video.id}`) }}
         >
             <div
                 className="aspect-video relative"
