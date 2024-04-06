@@ -30,13 +30,17 @@ function PlayerPage() {
     
     return (
         <div
-            className=""
+            className="flex md:items-stretch lg:items-start sm:flex-col lg:flex-row"
         >
-            <div>
-                { isLoading ? "Loading" : (video && video.id) ? JSON.stringify(video) : "Video Not Found" }
+            <div
+                className="bg-slate-900 z-30 overflow-hidden h-96 flex-1 sticky sm:top-12 md:top-14"
+            >
+                { isLoading ? "Loading" : (video.id) ? JSON.stringify(video) : "Video Not Found" }
             </div>
 
-            <div>
+            <div
+                className="flex-none lg:w-[25rem]"
+            >
                 <Feed videos={videoContext.videos} />
             </div>
 

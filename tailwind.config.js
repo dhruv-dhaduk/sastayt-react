@@ -4,7 +4,8 @@ export default {
     theme: {
         extend: {
             spacing: {
-                '12ch': '12ch'
+                '12ch': '12ch',
+                'feed-min-w': '20rem'
             },
             gridTemplateColumns: {
                 'feed': 'repeat(auto-fit, minmax(20rem, 1fr))'
