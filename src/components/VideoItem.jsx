@@ -23,7 +23,7 @@ function VideoItem({ video }) {
                 <img 
                     src={video.channelLogo}
                     alt={video.channelTitle}
-                    className="w-12 h-12 flex-none rounded-full"
+                    className="sm:w-10 sm:h-10 md:w-12 md:h-12 flex-none rounded-full"
                 />
 
                 <div
