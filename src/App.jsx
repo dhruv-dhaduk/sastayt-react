@@ -44,22 +44,12 @@ function App() {
 
     return (
         <>
-            <VideoContext.Provider value={videos} >
+            <VideoContext.Provider value={{ videos, addMoreVideos, isMoreVideos }} >
 
                 <Header />
 
                 <main className="sm:mt-12 md:mt-14 sm:mb-12 md:mb-0 md:ml-16" >
                     <Outlet />
-
-                    <div className="flex justify-center items-center">
-                        <button 
-                            onClick={() => addMoreVideos(5)}
-                            className="bg-white text-black m-4 p-4 font-bold rounded-xl border-2 border-white active:bg-black active:text-white"
-                        >
-                            {isMoreVideos ? "Fetch More Videos" : "No more videos"}
-                        </button> 
-                    </div>
-
                 </main>
 
                 <NavBar shuffleFeed={shuffleFeed} />
