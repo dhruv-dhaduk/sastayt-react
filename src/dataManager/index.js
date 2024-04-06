@@ -1,6 +1,8 @@
 import { AppwriteService } from '../appwriteService';
 import { sastaytIDB } from './indexedDB.js';
 
+const appwriteService = new AppwriteService();
+
 const paggedDataProvider = () => {
     const service = new AppwriteService();
 
@@ -10,31 +12,36 @@ const paggedDataProvider = () => {
             return [];
         ids = ids.map((item) => item.id);
 
-        let dataFromIDB = {};
-        try {
-            dataFromIDB = await sastaytIDB.getVideosFromIndexedDB(ids);
-        } catch (err) {
-            console.log(`Error : ${err}`);
-            dataFromIDB.success = [];
-            dataFromIDB.fail = ids;
-        }
-
-        let dataFromMainDB = [];
-
-        try {
-            if (dataFromIDB.fail.length)
-                dataFromMainDB = await service.fetchVideoDetails(dataFromIDB.fail);
-        }
-        catch(err) {
-            console.log(`Error : ${err}`);
-        }
-
-        sastaytIDB.addVideosToIndexedDB(dataFromMainDB);
-
-        return dataFromIDB.success.concat(dataFromMainDB);
+        return await retriveVideosData(ids);
     }
 
     return getNextVideos;
 }
 
-export { paggedDataProvider };
+const retriveVideosData = async (IDs) => {
+    let dataFromIDB = {};
+    try {
+        dataFromIDB = await sastaytIDB.getVideosFromIndexedDB(IDs);
+    } catch (err) {
+        console.log(`Error : ${err}`);
+        dataFromIDB.success = [];
+        dataFromIDB.fail = IDs;
+    }
+    
+    let dataFromMainDB = [];
+
+    try {
+        if (dataFromIDB.fail.length)
+            dataFromMainDB = await appwriteService.fetchVideoDetails(dataFromIDB.fail);
+    }
+    catch(err) {
+        console.log(`Error : ${err}`);
+    }
+
+    sastaytIDB.addVideosToIndexedDB(dataFromMainDB);
+
+    return dataFromIDB.success.concat(dataFromMainDB);
+    
+}
+
+export { paggedDataProvider, retriveVideosData };
