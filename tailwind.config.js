@@ -5,6 +5,9 @@ export default {
         extend: {
             spacing: {
                 '12ch': '12ch'
+            },
+            gridTemplateColumns: {
+                'feed': 'repeat(auto-fit, minmax(22rem, 1fr))'
             }
         },
         screens: {
