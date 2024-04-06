@@ -12,7 +12,7 @@ function VideoItem({ video }) {
                     className="w-full h-full object-cover md:rounded-2xl"
                 />
 
-                <p className="bg-black text-white sm:text-[13px]/[16px] md:text-[14px]/[18px] font-bold bg-opacity-70 absolute right-0 bottom-0 m-2 px-2 rounded-md">
+                <p className="bg-black text-white sm:text-[13px]/[16px] md:text-[14px]/[18px] font-bold bg-opacity-70 absolute right-0 bottom-0 m-2 px-[6px] rounded-md">
                     { convertDurationFormat(video.duration) }
                 </p>
             </div>
