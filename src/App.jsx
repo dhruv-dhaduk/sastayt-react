@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { VideoContext } from "./contexts/VideoContext.js";
 
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -43,25 +44,27 @@ function App() {
 
     return (
         <>
-            <Header />
+            <VideoContext.Provider value={videos} >
 
-            <main className="sm:mt-12 md:mt-14 sm:mb-12 md:mb-0 md:ml-16" >
-                <Outlet />
+                <Header />
 
-                <Feed videos={videos} />
+                <main className="sm:mt-12 md:mt-14 sm:mb-12 md:mb-0 md:ml-16" >
+                    <Outlet />
 
-                <div className="flex justify-center items-center">
-                    <button 
-                        onClick={() => addMoreVideos(5)}
-                        className="bg-white text-black m-4 p-4 font-bold rounded-xl border-2 border-white active:bg-black active:text-white"
-                    >
-                        {isMoreVideos ? "Fetch More Videos" : "No more videos"}
-                    </button> 
-                </div>
+                    <div className="flex justify-center items-center">
+                        <button 
+                            onClick={() => addMoreVideos(5)}
+                            className="bg-white text-black m-4 p-4 font-bold rounded-xl border-2 border-white active:bg-black active:text-white"
+                        >
+                            {isMoreVideos ? "Fetch More Videos" : "No more videos"}
+                        </button> 
+                    </div>
 
-            </main>
+                </main>
 
-            <NavBar shuffleFeed={shuffleFeed} />
+                <NavBar shuffleFeed={shuffleFeed} />
+
+            </VideoContext.Provider>
         </>
     );
 }
