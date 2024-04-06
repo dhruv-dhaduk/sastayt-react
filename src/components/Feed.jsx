@@ -1,7 +1,9 @@
+import VideoItem from "./VideoItem";
+
 function Feed({ videos }) {
     return (
         <div>
-            { videos.map(video => <p key={video.id}>{video.title}</p>) }
+            {videos.map(video => <VideoItem key={video.id} video={video} />)}
         </div>
     );
 }
