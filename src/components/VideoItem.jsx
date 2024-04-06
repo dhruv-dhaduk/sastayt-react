@@ -2,13 +2,18 @@ import { convertDurationFormat, convertUploadTimeFormat } from '../utils/convert
 
 function VideoItem({ video }) {
     return (
-        <div>
+        <div 
+            className="select-none cursor-pointer active:bg-stone-800"
+            onClick={e => { e.preventDefault(); window.open(`https://youtu.be/${video.id}`, "_blank") }}
+        >
             <div
                 className="aspect-video relative"
             >
                 <img 
                     src={video.thumbnail} 
                     alt={video.title}
+                    draggable="false"
+                    onContextMenu={e => e.preventDefault()}
                     className="w-full h-full object-cover md:rounded-2xl"
                 />
 
@@ -23,6 +28,9 @@ function VideoItem({ video }) {
                 <img 
                     src={video.channelLogo}
                     alt={video.channelTitle}
+                    draggable="false"
+                    onContextMenu={e => e.preventDefault()}
+                    onClick={e => { e.stopPropagation(); window.open(video.channelLink, "_blank") }}
                     className="sm:w-10 sm:h-10 md:w-12 md:h-12 flex-none rounded-full"
                 />
 
