@@ -33,8 +33,21 @@ function PlayerPage() {
             className="flex md:items-stretch lg:items-start sm:flex-col lg:flex-row"
         >
             <div
-                className="bg-slate-900 z-30 overflow-hidden h-96 flex-1 sticky sm:top-12 md:top-14"
+                className="bg-slate-900 z-30 overflow-hidden flex-1 sticky sm:top-12 md:top-14"
             >
+                <div>
+                    <iframe 
+                        src={`https://www.youtube.com/embed/${video.id}`} 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen
+
+                        className="w-full aspect-video"
+                    >
+                    </iframe>
+                </div>
                 { isLoading ? "Loading" : (video.id) ? JSON.stringify(video) : "Video Not Found" }
             </div>
 
