@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
@@ -7,9 +9,34 @@ const getNextVideos = paggedDataProvider();
 
 function App() {
 
+    const [videos, setVideos] = useState([]);
+    const [isMoreVideos, setIsMoreVideos] = useState(true);
+
+    useEffect(() => {
+        getNextVideos(5, true)
+        .then(data => {
+            if (data.length === 0) {
+                setIsMoreVideos(false);
+            }
+            else {
+                setVideos(videos.concat(data));
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error while Fetching the Data.");
+        });
+
+    }, []);
+
     async function handleClick() {
         const data = await getNextVideos(5);
-        console.log(data);
+        if (data.length === 0) {
+            setIsMoreVideos(false);
+        }
+        else {
+            setVideos(videos.concat(data));
+        }
     }
 
     return (
@@ -24,6 +51,10 @@ function App() {
                 >
                     Fetch Next Videos
                 </button>
+
+                <div>
+                    { videos.map(video => <p key={video.id}>{video.title}</p>) }
+                </div>
             </main>
 
             <NavBar />
