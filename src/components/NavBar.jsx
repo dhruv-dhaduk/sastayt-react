@@ -6,7 +6,7 @@ import backToTopIcon from "/icons/backToTop.svg"
 
 import { useNavigate } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({ shuffleFeed }) {
 
     const navigate = useNavigate();
     
@@ -16,7 +16,7 @@ function NavBar() {
         >
             <NavItem iconSrc={homeIcon} label="Home" onClick={() => navigate("/")} />
             <NavItem iconSrc={refreshIcon} label="Refresh" onClick={() => window.location.reload()} />
-            <NavItem iconSrc={shuffleIcon} label="Shuffle" />
+            <NavItem iconSrc={shuffleIcon} label="Shuffle" onClick={shuffleFeed} />
             <NavItem iconSrc={backToTopIcon} label="Back To Top" onClick={() => window.scrollTo(0, 0)} />
         </nav>
     );

@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
 
+import { shuffle } from "./utils/shuffle.js";
+
 import { paggedDataProvider } from './dataManager';
 const getNextVideos = paggedDataProvider();
 
@@ -34,6 +36,11 @@ function App() {
             addMoreVideos(5, true);
     }, []);
 
+    const shuffleFeed = () => {
+        setVideos(shuffle(videos));
+        window.scrollTo(0, 0);
+    }
+
     return (
         <>
             <Header />
@@ -54,7 +61,7 @@ function App() {
 
             </main>
 
-            <NavBar />
+            <NavBar shuffleFeed={shuffleFeed} />
         </>
     );
 }
