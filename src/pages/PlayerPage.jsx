@@ -1,13 +1,26 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useContext } from 'react';
-import { VideoContext } from '../contexts/VideoContext.js';
+import { retriveVideosData } from '../dataManager';
 
 function PlayerPage() {
     const { id } = useParams();
+    const [video, setVideo] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        retriveVideosData([id])
+        .then((response) => {
+            const data = response.find((item) => item.id === id);
+            if (data) {
+                setVideo(data);
+            }
+            setIsLoading(false);
+        })
+    }, [id]);
     
     return (
         <div>
-            {/* { video ? JSON.stringify(video) : "Video Not Available" }  */}
+            { isLoading ? "Loading" : (video && video.id) ? JSON.stringify(video) : "Video Not Found" }
         </div>
     );
 }
