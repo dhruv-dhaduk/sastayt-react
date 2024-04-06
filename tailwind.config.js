@@ -7,7 +7,7 @@ export default {
                 '12ch': '12ch'
             },
             gridTemplateColumns: {
-                'feed': 'repeat(auto-fit, minmax(22rem, 1fr))'
+                'feed': 'repeat(auto-fit, minmax(20rem, 1fr))'
             }
         },
         screens: {
