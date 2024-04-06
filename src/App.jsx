@@ -47,7 +47,7 @@ function App() {
                     onClick={() => addMoreVideos(5)}
                     className="bg-white text-black m-4 p-4 font-bold rounded-xl border-2 border-white active:bg-black active:text-white"
                 >
-                    {isMoreVideos ? "Fetch Next Videos" : "No more videos"}
+                    {isMoreVideos ? "Fetch More Videos" : "No more videos"}
                 </button> 
             </main>
 
