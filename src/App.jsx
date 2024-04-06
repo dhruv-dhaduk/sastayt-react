@@ -40,7 +40,6 @@ function App() {
 
             <main className="sm:mt-12 md:mt-14 sm:mb-12 md:mb-0 md:ml-16" >
                 <Outlet />
-                <hr />
 
                 <Feed videos={videos} />
 
