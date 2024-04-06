@@ -13,10 +13,7 @@ export default {
             'lg': '780px',
             'xl': '1280px',
             '2xl': '1740px'
-        },
-        fontSize: {
-            'vsm': '0.65rem'
-        },
+        }
     },
     plugins: [],
 };
