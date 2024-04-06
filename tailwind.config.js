@@ -10,8 +10,8 @@ export default {
         screens: {
             'sm': '0px',
             'md': '420px',
-            'lg': '840px',
-            'xl': '1440px',
+            'lg': '780px',
+            'xl': '1280px',
             '2xl': '1740px'
         },
         fontSize: {
