@@ -6,10 +6,6 @@ import Feed from '../components/Feed';
 import { VideoContext } from '../contexts/VideoContext.js';
 
 function PlayerPage() {
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 100);
-
     const { id } = useParams();
     const videoContext = useContext(VideoContext);
 
@@ -17,6 +13,9 @@ function PlayerPage() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);
 
         retriveVideosData([id])
         .then((response) => {

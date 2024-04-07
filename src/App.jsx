@@ -31,10 +31,29 @@ function App() {
         }
     }
 
+    const handleScrollToEnd = async () => {
+        const scrollRemaining = document.body.offsetHeight - window.scrollY - window.innerHeight;
+
+        if (scrollRemaining <= 0) {
+            const scrollY = window.scrollY;
+            window.removeEventListener("scrollend", handleScrollToEnd);
+            console.log(`FETCHING . . . . `);
+            console.log(videos);
+            addMoreVideos(5);
+            console.log(`FECHING DONE ..`);
+            window.scrollTo(0, scrollY);
+        }
+    }
+
     useEffect(() => {
         if (!videos.length)
             addMoreVideos(5, true);
     }, []);
+
+    useEffect(() => {
+        if (videos.length)
+            window.addEventListener("scrollend", handleScrollToEnd);
+    }, [videos])
 
     const shuffleFeed = () => {
         setVideos(shuffle(videos));
