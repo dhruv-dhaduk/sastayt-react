@@ -36,7 +36,7 @@ function PlayerPage() {
             <div
                 className="z-30 overflow-hidden flex-1 lg:sticky sm:top-12 md:top-14 lg:p-6"
             >
-                <div className="bg-black overflow-hidden sm:fixed lg:static sm:w-full md:w-iframe-w-md lg:w-full md:left-iframe-left-md">
+                <div className="z-30 bg-black overflow-hidden sm:fixed lg:static sm:w-full md:w-iframe-w-md lg:w-full md:left-iframe-left-md">
                     <iframe 
                         src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1&rel=0`} 
                         frameBorder="0" 
