@@ -1,8 +1,12 @@
 import { convertDurationFormat, convertUploadTimeFormat } from '../utils/converters.js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function VideoItem({ video }) {
+    const { id } = useParams();
     const navigate = useNavigate();
+
+    if (video.id === id)
+        return <></>
 
     return (
         <div 
