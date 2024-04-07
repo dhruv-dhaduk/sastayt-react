@@ -28,12 +28,12 @@ function VideoInfo({ video }) {
                         className="sm:w-10 sm:h-10 md:w-12 md:h-12 flex-none rounded-full"
                     />
 
-                    <p className="mx-4 font-semibold">
+                    <p className="mx-4 font-semibold sm:max-w-[16ch] md:max-w-max line-clamp-1">
                         { video.channelTitle }
                     </p>
                 </div>
 
-                <button className="bg-white text-black font-semibold rounded-full px-4 py-[6px] md:mr-2 active:bg-slate-200">
+                <button className="bg-white text-black font-semibold rounded-full px-4 py-[6px] sm:mr-4 md:mr-2 active:bg-slate-200">
                     Subscribe
                 </button>
 
