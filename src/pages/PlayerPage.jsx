@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { retriveVideosData } from '../dataManager';
 
 import Feed from '../components/Feed';
+import VideoInfo from '../components/VideoInfo.jsx';
+
 import { VideoContext } from '../contexts/VideoContext.js';
 
 function PlayerPage() {
@@ -46,7 +48,7 @@ function PlayerPage() {
                 </div>
 
                 <div className="sm:mt-player-info-margin-sm md:mt-player-info-margin-md lg:mt-0 md:mx-6 lg:mx-0">
-                    { isLoading ? "Loading" : (video.id) ? JSON.stringify(video) : "Video Not Found" }
+                    { isLoading ? "Loading" : (video.id) ? <VideoInfo video={video} /> : "Video Not Found" }
                 </div>
             </div>
 
