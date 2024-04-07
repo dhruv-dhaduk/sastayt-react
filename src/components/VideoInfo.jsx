@@ -12,7 +12,7 @@ function VideoInfo({ video }) {
                     { convertUploadTimeFormat(video.uploadTime)}
                 </p>
 
-                <div className="flex justify-between items-center py-4">
+                <div className="flex justify-between md:justify-start items-center py-4">
                     <div className="flex justify-start items-center">
                         <img 
                             src={video.channelLogo}
@@ -23,7 +23,7 @@ function VideoInfo({ video }) {
                             className="sm:w-10 sm:h-10 md:w-12 md:h-12 flex-none rounded-full"
                         />
 
-                        <p className="ml-2">
+                        <p className="mx-4">
                             { video.channelTitle }
                         </p>
                     </div>
@@ -35,8 +35,8 @@ function VideoInfo({ video }) {
                 </div>
             </div>
 
-            <div className='border-b border-white'>
-
+            <div className="border-t border-stone-700 px-4 py-2 text-sm md:hidden">
+                Up Next
             </div>
         </div>
     );
