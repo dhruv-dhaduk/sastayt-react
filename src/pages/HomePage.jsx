@@ -7,16 +7,7 @@ function HomePage() {
     
     return (
         <div>
-            <Feed videos={videoContext.videos} />
-
-            <div className="flex justify-center items-center">
-                <button 
-                    onClick={() => videoContext.addMoreVideos(5)}
-                    className="bg-white text-black m-4 p-4 font-bold rounded-xl border-2 border-white active:bg-black active:text-white"
-                >
-                    {videoContext.isMoreVideos ? "Fetch More Videos" : "No more videos"}
-                </button> 
-            </div>
+            <Feed videos={videoContext.videos} isMoreVideos={videoContext.isMoreVideos} />
         </div>
     );
 }
