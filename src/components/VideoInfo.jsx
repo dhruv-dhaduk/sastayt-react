@@ -8,7 +8,7 @@ import reportIcon from '/icons/report.svg';
 
 function VideoInfo({ video }) {
     return (
-        <div>
+        <div className="select-none">
             <p className="line-clamp-3 sm:font-semibold md:font-bold sm:text-[17px] md:text-lg sm:px-4 md:px-0">
                 { video.title }
             </p>
