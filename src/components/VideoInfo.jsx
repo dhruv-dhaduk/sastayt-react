@@ -7,6 +7,13 @@ import playlistIcon from '/icons/playlist.svg';
 import reportIcon from '/icons/report.svg';
 
 function VideoInfo({ video }) {
+    const shareVideo = () => {
+        navigator.share({
+            title: video.title,
+            url: `${window.location.origin}/videos/${video.id}`
+        });
+    }
+    
     return (
         <div className="select-none">
             <p className="line-clamp-3 sm:font-semibold md:font-bold sm:text-[17px] md:text-lg sm:px-4 md:px-0">
@@ -41,7 +48,7 @@ function VideoInfo({ video }) {
                     <div className="flex">
                         <Btn label="Like" icon={likeIcon} className="rounded-e-none sm:mx-0 relative after:content-[''] after:border after:border-stone-500 after:h-[60%] after:absolute after:right-0"></Btn>
                         <Btn label="" icon={dislikeIcon} className="rounded-s-none ml-0"></Btn>
-                        <Btn label="Share" icon={shareIcon} className=""></Btn>
+                        <Btn label="Share" icon={shareIcon} className="" onClick={shareVideo}></Btn>
                         <Btn label="Save" icon={playlistIcon} className=""></Btn>
                         <Btn label="Report" icon={reportIcon} className=""></Btn>
                     </div>
@@ -56,10 +63,11 @@ function VideoInfo({ video }) {
     );
 }
 
-function Btn({ label, icon, className }) {
+function Btn({ label, icon, className, onClick }) {
     return (
         <button
             className={`bg-stone-800 active:bg-stone-700 text-white rounded-full px-4 py-[6px] mx-1 flex-none flex items-center ${className}`}
+            onClick={onClick}
         >
             <img 
                 src={icon}
