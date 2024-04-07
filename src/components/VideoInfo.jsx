@@ -12,6 +12,10 @@ function VideoInfo({ video }) {
             url: `${window.location.origin}/videos/${video.id}`
         });
     }
+
+    const redirectToYT = () => {
+        window.open(`https://youtu.be/${video.id}`, "_blank");
+    } 
     
     return (
         <div className="select-none">
@@ -24,7 +28,11 @@ function VideoInfo({ video }) {
 
             <div className="flex justify-between md:justify-start flex-wrap items-center py-3">
 
-                <div className="flex justify-start items-center sm:px-4 md:px-0">
+                <a 
+                    className="flex justify-start items-center sm:px-4 md:px-0"
+                    href={video.channelLink}
+                    target="_blank"
+                >
                     <img 
                         src={video.channelLogo}
                         alt={video.channelTitle}
@@ -37,19 +45,25 @@ function VideoInfo({ video }) {
                     <p className="mx-4 font-semibold sm:max-w-[16ch] md:max-w-max line-clamp-1">
                         { video.channelTitle }
                     </p>
-                </div>
+                </a>
 
                 <button className="bg-white text-black font-semibold rounded-full px-4 py-[6px] sm:mr-4 md:mr-2 active:bg-slate-200">
-                    Subscribe
+                    <a 
+                        className="w-full h-full"
+                        href={video.channelLink}
+                        target="_blank"
+                    >
+                        Subscribe
+                    </a>
                 </button>
 
                 <div className="overflow-x-scroll py-4 no-scrollbar ml-auto sm:px-4 md:px-0">
                     <div className="flex">
-                        <Btn label="Like" icon={likeIcon} className="rounded-e-none sm:mx-0 relative after:content-[''] after:border after:border-stone-500 after:h-[60%] after:absolute after:right-0"></Btn>
-                        <Btn label="" icon={dislikeIcon} className="rounded-s-none ml-0"></Btn>
+                        <Btn label="Like" icon={likeIcon} onClick={redirectToYT} className="rounded-e-none sm:mx-0 relative after:content-[''] after:border after:border-stone-500 after:h-[60%] after:absolute after:right-0"></Btn>
+                        <Btn label="" icon={dislikeIcon} onClick={redirectToYT} className="rounded-s-none ml-0"></Btn>
                         <Btn label="Share" icon={shareIcon} className="" onClick={shareVideo}></Btn>
-                        <Btn label="Save" icon={playlistIcon} className=""></Btn>
-                        <Btn label="Report" icon={reportIcon} className=""></Btn>
+                        <Btn label="Save" icon={playlistIcon} className="" onClick={redirectToYT}></Btn>
+                        <Btn label="Report" icon={reportIcon} className="" onClick={redirectToYT}></Btn>
                     </div>
                 </div>
 
@@ -72,7 +86,6 @@ function Btn({ label, icon, className, onClick }) {
                 src={icon}
                 draggable="false"
                 onContextMenu={e => e.preventDefault()}
-                onClick={e => { e.stopPropagation(); window.open(video.channelLink, "_blank") }}
                 className="w-6 aspect-square mr-1"
             />
 
