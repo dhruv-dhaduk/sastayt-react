@@ -39,7 +39,7 @@ function VideoInfo({ video }) {
 
                 <div className="overflow-x-scroll py-4 no-scrollbar ml-auto sm:px-4 md:px-0">
                     <div className="flex">
-                        <Btn label="Like" icon={likeIcon} className="rounded-e-none mx-0 relative after:content-[''] after:border after:border-stone-500 after:h-[60%] after:absolute after:right-0"></Btn>
+                        <Btn label="Like" icon={likeIcon} className="rounded-e-none sm:mx-0 relative after:content-[''] after:border after:border-stone-500 after:h-[60%] after:absolute after:right-0"></Btn>
                         <Btn label="" icon={dislikeIcon} className="rounded-s-none ml-0"></Btn>
                         <Btn label="Share" icon={shareIcon} className=""></Btn>
                         <Btn label="Save" icon={playlistIcon} className=""></Btn>

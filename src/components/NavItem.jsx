@@ -14,7 +14,7 @@ function NavItem({label, iconSrc, onClick}) {
                 className="select-none sm:w-5 md:w-6"
             />
 
-            <p className="text-vsm select-none max-w-12ch text-nowrap overflow-x-hidden ">
+            <p className="text-[10px] select-none max-w-12ch text-nowrap overflow-x-hidden ">
                 {label}
             </p>
         </div>
