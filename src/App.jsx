@@ -44,7 +44,7 @@ function App() {
 
     useEffect(() => {
         if (!videos.length)
-            addMoreVideos(5, true);
+            addMoreVideos(10, true);
     }, []);
 
     useEffect(() => {
