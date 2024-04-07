@@ -28,7 +28,7 @@ function VideoInfo({ video }) {
                         </p>
                     </div>
 
-                    <button className="bg-white text-black font-semibold rounded-full px-4 py-2">
+                    <button className="bg-white text-black font-bold rounded-full px-4 py-[6px]">
                         Subscribe
                     </button>
 
