@@ -4,7 +4,6 @@ import { VideoContext } from "./contexts/VideoContext.js";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
-import Feed from "./components/Feed";
 
 import { shuffle } from "./utils/shuffle.js";
 
