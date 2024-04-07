@@ -1,5 +1,4 @@
-import { convertUploadTimeFormat } from '../utils/converters.js'
-import homeIcon from '/icons/home.svg';
+import { convertUploadTimeFormat } from '../utils/converters.js';
 import likeIcon from '/icons/like.svg';
 import dislikeIcon from '/icons/dislike.svg';
 import shareIcon from '/icons/share.svg';
