@@ -1,4 +1,10 @@
 import { convertUploadTimeFormat } from '../utils/converters.js'
+import homeIcon from '/icons/home.svg';
+import likeIcon from '/icons/like.svg';
+import dislikeIcon from '/icons/dislike.svg';
+import shareIcon from '/icons/share.svg';
+import playlistIcon from '/icons/playlist.svg';
+import reportIcon from '/icons/report.svg';
 
 function VideoInfo({ video }) {
     return (
@@ -32,6 +38,14 @@ function VideoInfo({ video }) {
                         Subscribe
                     </button>
 
+                    <div className="flex">
+                        <Btn label="Like" icon={likeIcon} className="rounded-e-none mr-0 relative after:content-[''] after:border after:border-stone-400 after:h-[60%] after:absolute after:right-0"></Btn>
+                        <Btn label="" icon={dislikeIcon} className="rounded-s-none ml-0"></Btn>
+                        <Btn label="Share" icon={shareIcon} className=""></Btn>
+                        <Btn label="Save" icon={playlistIcon} className=""></Btn>
+                        <Btn label="Report" icon={reportIcon} className=""></Btn>
+                    </div>
+
                 </div>
             </div>
 
@@ -39,6 +53,26 @@ function VideoInfo({ video }) {
                 Up Next
             </div>
         </div>
+    );
+}
+
+function Btn({ label, icon, className }) {
+    return (
+        <button
+            className={`bg-stone-700 text-white rounded-full px-4 py-[6px] mx-1 flex items-center ${className}`}
+        >
+            <img 
+                src={icon}
+                draggable="false"
+                onContextMenu={e => e.preventDefault()}
+                onClick={e => { e.stopPropagation(); window.open(video.channelLink, "_blank") }}
+                className="w-6 aspect-square mr-1"
+            />
+
+            <span className="text-sm font-semibold">
+                {label}
+            </span>
+        </button>
     );
 }
 
