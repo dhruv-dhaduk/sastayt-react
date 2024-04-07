@@ -5,7 +5,11 @@ export default {
         extend: {
             spacing: {
                 '12ch': '12ch',
-                'feed-min-w': '20rem'
+                'feed-min-w': '20rem',
+                'iframe-w-md': 'calc(100% - 7rem)',
+                'iframe-left-md': '5.5rem',
+                'player-info-margin-md': 'calc(((100% - 4rem) * 9 / 16) + 1rem)',
+                'player-info-margin-sm': 'calc((100% * 9 / 16) + 1rem)'
             },
             gridTemplateColumns: {
                 'feed': 'repeat(auto-fit, minmax(20rem, 1fr))'
