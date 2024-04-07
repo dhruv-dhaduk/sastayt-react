@@ -38,9 +38,9 @@ function PlayerPage() {
                 <div className="overflow-hidden md:rounded-xl sm:fixed lg:static sm:w-full md:w-iframe-w-md lg:w-full md:left-iframe-left-md">
                     <iframe 
                         src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1&rel=0`} 
-                        frameborder="0" 
+                        frameBorder="0" 
                         allow="autoplay; picture-in-picture;" 
-                        allowfullscreen="true"
+                        allowFullScreen="true"
                         className="w-full aspect-video"
                     >
                     </iframe>
