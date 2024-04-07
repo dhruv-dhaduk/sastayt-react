@@ -33,9 +33,9 @@ function PlayerPage() {
             className="flex md:items-stretch lg:items-start sm:flex-col lg:flex-row"
         >
             <div
-                className="z-30 overflow-hidden flex-1 lg:sticky sm:top-12 md:top-14 lg:px-6"
+                className="z-30 overflow-hidden flex-1 lg:sticky sm:top-12 md:top-14 lg:p-6"
             >
-                <div className="sm:fixed lg:static sm:w-full md:w-iframe-w-md lg:w-full md:left-iframe-left-md">
+                <div className="overflow-hidden md:rounded-xl sm:fixed lg:static sm:w-full md:w-iframe-w-md lg:w-full md:left-iframe-left-md">
                     <iframe 
                         src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1&rel=0`} 
                         frameborder="0" 
