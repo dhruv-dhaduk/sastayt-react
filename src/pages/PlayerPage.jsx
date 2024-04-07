@@ -40,7 +40,7 @@ function PlayerPage() {
                         src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1&rel=0`} 
                         frameborder="0" 
                         allow="autoplay; picture-in-picture;" 
-                        allowfullscreen
+                        allowfullscreen="true"
                         className="w-full aspect-video"
                     >
                     </iframe>
