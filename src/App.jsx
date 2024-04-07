@@ -37,10 +37,7 @@ function App() {
         if (scrollRemaining <= 0) {
             const scrollY = window.scrollY;
             window.removeEventListener("scrollend", handleScrollToEnd);
-            console.log(`FETCHING . . . . `);
-            console.log(videos);
             addMoreVideos(5);
-            console.log(`FECHING DONE ..`);
             window.scrollTo(0, scrollY);
         }
     }
