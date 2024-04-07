@@ -53,7 +53,7 @@ function PlayerPage() {
             <div
                 className="flex-none lg:w-[25rem]"
             >
-                <Feed videos={videoContext.videos} />
+                <Feed videos={videoContext.videos} isMoreVideos={videoContext.isMoreVideos} />
             </div>
 
         </div>
