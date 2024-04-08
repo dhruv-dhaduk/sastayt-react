@@ -11,10 +11,12 @@ import { paggedDataProvider } from './dataManager';
 const getNextVideos = paggedDataProvider();
 
 function App() {
-
+    
     const [videos, setVideos] = useState([]);
     const [isMoreVideos, setIsMoreVideos] = useState(true);
-
+    console.log("APP RENDER : ");
+    console.log(videos);
+    
     const addMoreVideos = async (count, resetPaging) => {
         if (!isMoreVideos)
             return;
@@ -54,6 +56,7 @@ function App() {
     }, [videos])
 
     const shuffleFeed = () => {
+        window.removeEventListener("scrollend", handleScrollToEnd);
         setVideos(shuffle(videos));
         window.scrollTo(0, 0);
     }
