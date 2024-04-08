@@ -1,5 +1,6 @@
 import VideoItem from "./VideoItem";
 import Loading from "./Loading";
+import Spinner from "./Spinner";
 
 function Feed({ videos, isMoreVideos }) {
 
@@ -15,11 +16,11 @@ function Feed({ videos, isMoreVideos }) {
             </div>
 
             <div className="flex justify-center items-center border-t border-stone-700">
-                <p
+                <div
                     className="p-4 text-stone-300"
                 >
-                    {isMoreVideos ? "Loading . . ." : "No more videos"}
-                </p> 
+                    {isMoreVideos ? <Spinner /> : "No more videos"}
+                </div> 
             </div>
         </>
     );
