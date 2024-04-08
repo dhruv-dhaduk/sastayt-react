@@ -13,9 +13,19 @@ function VideoInfo({ video }) {
         });
     }
 
+    
     const redirectToYT = () => {
-        window.open(`https://youtu.be/${video.id}`, "_blank");
-    } 
+        const isAgreed = window.confirm("Open video on YouTube ?");
+        if (isAgreed)
+            window.open(`https://youtu.be/${video.id}`, "_blank");
+    }
+
+    const redirectToChannel = () => {
+        const isAgreed = window.confirm("Open channel on YouTube ?")
+        if (isAgreed)
+            window.open(video.channelLink, "_blank");
+    }
+
     
     return (
         <div className="select-none">
@@ -28,33 +38,28 @@ function VideoInfo({ video }) {
 
             <div className="flex justify-between md:justify-start flex-wrap items-center py-3">
 
-                <a 
+                <div
                     className="flex justify-start items-center sm:px-4 md:px-0"
-                    href={video.channelLink}
-                    target="_blank"
+                    onClick={redirectToChannel}
                 >
                     <img 
                         src={video.channelLogo}
                         alt={video.channelTitle}
                         draggable="false"
                         onContextMenu={e => e.preventDefault()}
-                        onClick={e => { e.stopPropagation(); window.open(video.channelLink, "_blank") }}
                         className="sm:w-10 sm:h-10 md:w-12 md:h-12 flex-none rounded-full"
                     />
 
                     <p className="mx-4 font-semibold sm:max-w-[16ch] md:max-w-max line-clamp-1">
                         { video.channelTitle }
                     </p>
-                </a>
+                </div>
 
-                <button className="bg-white text-black font-semibold rounded-full px-4 py-[6px] sm:mr-4 md:mr-2 active:bg-slate-200">
-                    <a 
-                        className="w-full h-full"
-                        href={video.channelLink}
-                        target="_blank"
-                    >
-                        Subscribe
-                    </a>
+                <button 
+                    className="bg-white text-black font-semibold rounded-full px-4 py-[6px] sm:mr-4 md:mr-2 active:bg-slate-200"
+                    onClick={redirectToChannel}
+                >
+                    Subscribe
                 </button>
 
                 <div className="overflow-x-scroll py-4 no-scrollbar ml-auto sm:px-4 md:px-0">

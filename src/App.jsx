@@ -14,8 +14,6 @@ function App() {
     
     const [videos, setVideos] = useState([]);
     const [isMoreVideos, setIsMoreVideos] = useState(true);
-    console.log("APP RENDER : ");
-    console.log(videos);
     
     const addMoreVideos = async (count, resetPaging) => {
         if (!isMoreVideos)
