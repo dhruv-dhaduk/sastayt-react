@@ -51,10 +51,15 @@ function App() {
     useEffect(() => {
         if (videos.length)
             window.addEventListener("scrollend", handleScrollToEnd);
-    }, [videos])
+    }, [videos]);
+
+    useEffect(() => {
+        return () => {
+            window.removeEventListener("scrollend", handleScrollToEnd);
+        }
+    });
 
     const shuffleFeed = () => {
-        window.removeEventListener("scrollend", handleScrollToEnd);
         setVideos(shuffle(videos));
         window.scrollTo(0, 0);
     }
