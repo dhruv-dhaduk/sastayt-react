@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 
-import { shuffle } from "./utils/shuffle.js";
+import { shuffle, shuffleInPlace } from "./utils/shuffle.js";
 
 import { paggedDataProvider } from './dataManager';
 const getNextVideos = paggedDataProvider();
@@ -21,6 +21,7 @@ function App() {
 
         try {
             const data = await getNextVideos(count ? count : 5, resetPaging);
+            shuffleInPlace(data);
             if (data.length === 0)
                 setIsMoreVideos(false);
             else 
@@ -37,7 +38,7 @@ function App() {
         if (scrollRemaining <= 0) {
             const scrollY = window.scrollY;
             window.removeEventListener("scrollend", handleScrollToEnd);
-            addMoreVideos(5);
+            addMoreVideos(10);
             window.scrollTo(0, scrollY);
         }
     }
