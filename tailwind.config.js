@@ -13,6 +13,9 @@ export default {
             },
             gridTemplateColumns: {
                 'feed': 'repeat(auto-fit, minmax(20rem, 1fr))'
+            },
+            colors: {
+                'loading-card': '#2c2c2c'
             }
         },
         screens: {

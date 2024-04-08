@@ -1,6 +1,11 @@
 import VideoItem from "./VideoItem";
+import Loading from "./Loading";
 
 function Feed({ videos, isMoreVideos }) {
+
+    if (!videos.length)
+        return <Loading count={12} />
+
     return (
         <>
             <div
