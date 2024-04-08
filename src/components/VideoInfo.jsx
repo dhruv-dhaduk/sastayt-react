@@ -15,13 +15,13 @@ function VideoInfo({ video }) {
 
     
     const redirectToYT = () => {
-        const isAgreed = window.confirm("Open video on YouTube ?");
+        const isAgreed = window.confirm("Open video in YouTube ?");
         if (isAgreed)
             window.open(`https://youtu.be/${video.id}`, "_blank");
     }
 
     const redirectToChannel = () => {
-        const isAgreed = window.confirm("Open channel on YouTube ?")
+        const isAgreed = window.confirm("Open channel in YouTube ?")
         if (isAgreed)
             window.open(video.channelLink, "_blank");
     }

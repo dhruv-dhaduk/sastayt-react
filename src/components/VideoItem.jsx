@@ -37,7 +37,7 @@ function VideoItem({ video }) {
                     alt={video.channelTitle}
                     draggable="false"
                     onContextMenu={e => e.preventDefault()}
-                    onClick={e => { e.stopPropagation(); window.open(video.channelLink, "_blank") }}
+                    onClick={e => { e.stopPropagation(); if(window.confirm("Open channel in YouTube ?")) window.open(video.channelLink, "_blank") }}
                     className="sm:w-10 sm:h-10 md:w-12 md:h-12 flex-none rounded-full"
                 />
 
