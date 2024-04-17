@@ -7,7 +7,7 @@ function Header() {
     return (
         <>
             <header
-                className="bg-black fixed top-0 inset-x-0 z-50 flex justify-start items-center border-b border-b-gray-800 sm:h-12 md:h-14"
+                className="bg-black bg-opacity-50 backdrop-blur-[8px] fixed top-0 inset-x-0 z-50 flex justify-start items-center border-b border-b-gray-800 sm:h-12 md:h-14"
             >
                 
                 <Link 
