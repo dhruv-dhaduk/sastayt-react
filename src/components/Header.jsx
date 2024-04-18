@@ -1,13 +1,21 @@
 import { Link } from 'react-router-dom';
 import isMobileDevice from '../utils/isMobileDevice.js';
 
+import { useLocation } from 'react-router-dom';
+
 import codeIcon from '/icons/code.svg';
 
 function Header() {
+
+    const location = useLocation();
+    console.log(location);
+
+    const glassmorphic = location.pathname.startsWith('/videos/') ? "" : "bg-opacity-50 backdrop-blur-[8px]";
+        
     return (
         <>
             <header
-                className="bg-black bg-opacity-50 backdrop-blur-[8px] fixed top-0 inset-x-0 z-50 flex justify-start items-center border-b border-b-gray-800 sm:h-12 md:h-14"
+                className={`bg-black ${glassmorphic} fixed top-0 inset-x-0 z-50 flex justify-start items-center border-b border-b-gray-800 sm:h-12 md:h-14`}
             >
                 
                 <Link 
