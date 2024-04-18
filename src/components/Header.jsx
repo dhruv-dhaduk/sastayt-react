@@ -8,10 +8,9 @@ import codeIcon from '/icons/code.svg';
 function Header() {
 
     const location = useLocation();
-    console.log(location);
 
     const glassmorphic = location.pathname.startsWith('/videos/') ? "" : "bg-opacity-50 backdrop-blur-[8px]";
-        
+
     return (
         <>
             <header
