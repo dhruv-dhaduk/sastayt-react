@@ -25,6 +25,7 @@ function PlayerPage() {
             const data = response.find((item) => item.id === id);
             if (data) {
                 setVideo(data);
+                document.title = data.title;
             }
             setIsLoading(false);
         })
